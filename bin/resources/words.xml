@@ -1,0 +1,52 @@
+<words>
+	<word indexOfWrongLetter="1">
+		<wrongWord>ракавица</wrongWord>
+		<correctWord>ръкавица</correctWord>
+		<explanation>Трябва да се поправи буквата "а" в първата сричка. Правилно е да се напише "ъ". Проверяваме с думата "ръчен".</explanation>
+	</word>
+	<word indexOfWrongLetter="4">
+		<wrongWord>охлюф</wrongWord>
+		<correctWord>охлюв</correctWord>
+		<explanation>Трябва да се поправи буквата "ф" в края на думата. Правилно е да се напише "в". Проверяваме с думата "охлюви".</explanation>
+	</word>
+	<word indexOfWrongLetter="1">
+		<wrongWord>чесовник</wrongWord>
+		<correctWord>часовник</correctWord>
+		<explanation>Трябва да се поправи буквата "е" в първата сричка. Правилно е да се напише "а". Проверяваме с думата "час".</explanation>
+	</word>
+	<word indexOfWrongLetter="0">
+		<wrongWord>очилище</wrongWord>
+		<correctWord>училище</correctWord>
+		<explanation>Трябва да се поправи буквата "о" в първата сричка. Правилно е да се напише "у". Проверяваме с думата "уча".</explanation>
+	</word>
+	<word indexOfWrongLetter="6">
+		<wrongWord>предмед</wrongWord>
+		<correctWord>предмет</correctWord>
+		<explanation>Трябва да се поправи буквата "д" накрая. Правилно е да се напише "т". Проверяваме с думата "предмети".</explanation>
+	</word>
+	<word indexOfWrongLetter="2">
+		<wrongWord>еденица</wrongWord>
+		<correctWord>единица</correctWord>
+		<explanation>Трябва да се поправи буквата "е" във втората сричка. Правилно е да се напише "и". Проверяваме с думата "един".</explanation>
+	</word>
+	<word indexOfWrongLetter="5">
+		<wrongWord>асансиор</wrongWord>
+		<correctWord>асаньор</correctWord>
+		<explanation>Трябва да се поправи буквата "и" в третата сричка. Правилно е да се напише "ь", защото е след съгласния звук "с".</explanation>
+	</word>
+	<word indexOfWrongLetter="2">
+		<wrongWord>раион</wrongWord>
+		<correctWord>район</correctWord>
+		<explanation>Трябва да се поправи буквата "и" в третата сричка. Правилно е да се напише "й", защото е след гласния звук "а".</explanation>
+	</word>
+	<word indexOfWrongLetter="6">
+		<wrongWord>таралеш</wrongWord>
+		<correctWord>таралеж</correctWord>
+		<explanation>Трябва да се поправи буквата "ш" накрая. Правилно е да се напише "ж". Проверяваме с думата "таралежи".</explanation>
+	</word>
+	<word indexOfWrongLetter="6">
+		<wrongWord>самолед</wrongWord>
+		<correctWord>самолет</correctWord>
+		<explanation>Трябва да се поправи буквата "д" накрая. Правилно е да се напише "т". Проверяваме с думата "самолети".</explanation>
+	</word>
+</words>
