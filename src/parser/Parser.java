@@ -27,11 +27,11 @@ public class Parser
 			
 			NodeList wordsNList = doc.getElementsByTagName("word");
 			
-			Element eIndex = (Element) wordsNList.item(0);
-			int index = Integer.parseInt(eIndex.getAttribute("indexOfWrongLetter"));
-			
 			for (int i = 0; i < wordsNList.getLength(); i++)
 			{
+				Element eIndex = (Element) wordsNList.item(i);
+				int index = Integer.parseInt(eIndex.getAttribute("indexOfWrongLetter"));
+				
 				Node nCategory = wordsNList.item(i);
 				
 				if (nCategory.getNodeType() == Node.ELEMENT_NODE) 
