@@ -10,10 +10,11 @@ import javax.swing.JFrame;
 
 import constants.GameConstants;
 import game_components.*;
+import interfaces.IGame;
 import parser.Parser;
 import windows.*;
 
-public class Game 
+public class Game implements IGame
 {
 	private final LayoutManager LAYOUT = new FlowLayout();
 	
@@ -48,6 +49,7 @@ public class Game
 		c.setMaximumSize(d);
 	}
 	
+	@Override
 	public void start()
 	{
 		window.add(new MainWindow());
@@ -57,8 +59,23 @@ public class Game
 		
 		window.setVisible(true);
 	}
-	
-	public void addWordWindow(Word w) // to-do change name
+
+	@Override
+	public void end() 
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void change() 
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void openWordWindow(Word w) 
 	{
 		window.getContentPane().removeAll();
 		
@@ -72,6 +89,4 @@ public class Game
 	{
 		return info;
 	}
-	
-	
 }

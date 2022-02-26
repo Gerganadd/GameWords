@@ -46,7 +46,7 @@ public class MainWindow extends JPanel
 					@Override
 					public void mouseClicked(MouseEvent arg0) 
 					{
-						Game.getInstance().addWordWindow(k);
+						Game.getInstance().openWordWindow(k);
 					}
 				});
 				this.add(lbl);
