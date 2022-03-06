@@ -14,6 +14,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import constants.GameConstants;
+import constants.ViewConstants;
 import game.Game;
 import game_components.*;
 
@@ -21,7 +22,9 @@ public class MainWindow extends JPanel
 {
 	private Graphics2D g;
 	private BufferedImage backgroundImage;
-	public BufferedImage elementImage;
+	private BufferedImage elementImage;
+	private BufferedImage selectedElementImage;
+	private BufferedImage roll;
 	
 	public MainWindow()
 	{
@@ -32,27 +35,15 @@ public class MainWindow extends JPanel
 		{
 			backgroundImage = ImageIO.read(new File(GameConstants.BACKGROUND_PICTURE_PATH));
 			elementImage = ImageIO.read(new File(GameConstants.ELEMENT_PICTURE_PATH));
+			selectedElementImage = ImageIO.read(new File(GameConstants.SELECTED_ELEMENT_PICTURE_PATH));
+			
+			roll = ImageIO.read(new File(GameConstants.CONGRATULATION_PICTURE_PATH));
 			
 			Dimension d = new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight());
 			Game.setSize(this, d);
 			
-			Map<Word, Coordinate> info = Game.getInstance().getInfo();
-			info.forEach((k, v) -> 
-			{
-				JLabel lbl = new JLabel(new ImageIcon(elementImage));
-				lbl.setBounds(v.getX(), v.getY(), elementImage.getWidth(), elementImage.getHeight());
-				lbl.addMouseListener(new MouseAdapter() 
-				{
-					@Override
-					public void mouseClicked(MouseEvent arg0) 
-					{
-						Game.getInstance().openWordWindow(k);
-					}
-				});
-				this.add(lbl);
-			});
-			
-			
+			drawElements(Game.getInstance().getInfo(), true);
+			drawElements(Game.getInstance().getSelectedWords(), false);
 			
 			//to-do: remove mouseListener
 			this.addMouseListener(new MouseAdapter()
@@ -72,6 +63,11 @@ public class MainWindow extends JPanel
 		
 	}
 	
+	public Dimension getSize()
+	{
+		return new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight());
+	}
+	
 	@Override
     protected void paintComponent(Graphics g)
 	{
@@ -82,10 +78,35 @@ public class MainWindow extends JPanel
         {
             this.g.drawImage(backgroundImage, 0, 0, this);
         }
+        
+        if (Game.getInstance().getInfo().size() == 0)
+        {
+        	this.g.drawImage(roll, 230, 170, this);
+            this.g.drawString(ViewConstants.CONGRATULATION_TEXT, 280, 227);
+        }
        
         this.g.dispose();
         
     }
+	
+	private void drawElements(Map<Word, Coordinate> map, boolean isDefaultPicture)
+	{
+		map.forEach((k, v) -> 
+		{
+			BufferedImage image = isDefaultPicture ? elementImage : selectedElementImage;
+			JLabel lbl = new JLabel(new ImageIcon(image));
+			lbl.setBounds(v.getX(), v.getY(), image.getWidth(), image.getHeight());
+			lbl.addMouseListener(new MouseAdapter() 
+			{
+				@Override
+				public void mouseClicked(MouseEvent arg0) 
+				{
+					Game.getInstance().openWordWindow(k);
+				}
+			});
+			this.add(lbl);
+		});
+	}
 	
 	private void configurate() 
 	{

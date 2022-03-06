@@ -4,6 +4,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.LayoutManager;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JFrame;
@@ -20,7 +21,10 @@ public class Game implements IGame
 	
 	private static Game game = null;
 	
+	private Dimension size;
+	
 	private Map<Word, Coordinate> info = Parser.parse(GameConstants.FILE_PATH); // change name
+	private Map<Word, Coordinate> selectedWords = new HashMap<>();
 	private JFrame window;
 	
 	
@@ -57,6 +61,8 @@ public class Game implements IGame
 		window.pack();
 		window.repaint();
 		
+		size = window.getSize();
+		
 		window.setVisible(true);
 	}
 
@@ -70,9 +76,10 @@ public class Game implements IGame
 	@Override
 	public void change() 
 	{
-		// TODO Auto-generated method stub
-		
+		window.pack();
+		window.repaint();
 	}
+	
 
 	@Override
 	public void openWordWindow(Word w) 
@@ -83,10 +90,25 @@ public class Game implements IGame
 		
 		window.pack();
 		window.repaint();
+		
+		setSize(window, size);
+		
+		selectedWords.put(w, info.get(w));
+		info.remove(w);
 	}
 	
 	public Map<Word, Coordinate> getInfo()
 	{
 		return info;
+	}
+	
+	public Map<Word, Coordinate> getSelectedWords()
+	{
+		return selectedWords;
+	}
+
+	public Dimension getWindowSize()
+	{
+		return size;
 	}
 }
