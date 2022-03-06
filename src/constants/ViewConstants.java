@@ -14,9 +14,21 @@ public class ViewConstants
 	public static final int FONT = Font.PLAIN;
 	public static final LayoutManager LAYOUT = new FlowLayout();
 	
-	public static final Dimension D_WORD_WINDOW = new Dimension(300, 400);
+	//StartWindow
+	public static final String PLAYER_NAME = "Ema"; // to-do: change it
+	public static String PLAYER_WORDS = 
+			String.format("Здравей! Аз съм %s. В тази игра ще видиш неправилно написани думи."
+					+ " Аз ще избирам коя да поправиш. Ти кликни върху грешената буква в нея."
+					+ " Ако откриеш коя е тя, печелиш точка.", PLAYER_NAME);
+	public static final String PLAYER_WORDS_1 = "Искаш ли да играем?";
+	
+	public static final String BTN_YES_TEXT = "ДА";
+	public static final String BTN_NO_TEXT = "НЕ";
+	
 	
 	//WordWindow
+	public static final Dimension D_WORD_WINDOW = new Dimension(300, 400); //change name
+	
 	public static final Color CORRECT_COLOR = Color.GREEN;
 	
 	public static final String WORD_WINDOW_QUESTION = "Коя е сгрешената буква? Кликни върху нея.";
@@ -33,9 +45,7 @@ public class ViewConstants
 	public static final double PROSENTS_OF_WINDOW_PNL_TEXT = 0.1;
 	public static final double PROSENTS_OF_WINDOW_PNL_LETTER = 0.2;
 	
-	
-	//
-	public static final String CONGRATULATION_TEXT = "Поздравления, ти отвори всички сандъци!";
+	//ResultWindow
 	public static String END_TEXT = "Твоят резултат е: ";
 	
 	public static final String RESULT_TEXT_10_POINTS = "Браво! Справи се отлично!";

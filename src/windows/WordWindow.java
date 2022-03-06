@@ -1,10 +1,8 @@
 package windows;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.LayoutManager;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -17,7 +15,7 @@ import constants.ViewConstants;
 import game.Game;
 import game_components.Word;
 
-public class WordWindow extends JPanel
+public class WordWindow extends JPanel //to-do add timer
 {
 	private final LayoutManager WORD_WINDOW_LAYOUT = new BoxLayout(this, BoxLayout.Y_AXIS);
 	

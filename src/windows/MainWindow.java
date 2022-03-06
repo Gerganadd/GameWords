@@ -82,7 +82,7 @@ public class MainWindow extends JPanel
         if (Game.getInstance().getInfo().size() == 0)
         {
         	this.g.drawImage(roll, 230, 170, this);
-            this.g.drawString(ViewConstants.CONGRATULATION_TEXT, 280, 227);
+            this.g.drawString("Поздравления!", 280, 227); //to-do
         }
        
         this.g.dispose();
