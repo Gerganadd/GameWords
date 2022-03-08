@@ -56,7 +56,7 @@ public class Game implements IGame
 	@Override
 	public void start()
 	{
-		window.add(new StartWindow());
+		window.add(new ExlanationGameWindow());
 		
 		window.pack();
 		window.repaint();
