@@ -2,12 +2,11 @@ package game;
 
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.LayoutManager;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import constants.GameConstants;
 import constants.ViewConstants;
@@ -25,7 +24,6 @@ public class Game implements IGame
 	private Map<Word, Coordinate> info = Parser.parse(GameConstants.FILE_PATH); // change name
 	private Map<Word, Coordinate> selectedWords = new HashMap<>();
 	private JFrame window;
-	
 	
 	public Game()
 	{
@@ -56,29 +54,39 @@ public class Game implements IGame
 	@Override
 	public void start()
 	{
-		window.add(new ExlanationGameWindow());
-		
-		window.pack();
-		window.repaint();
-		
-		//size = window.getSize();
-		
-		window.setVisible(true);
+		openWindow(new StartGameWindow());
+	}
+	
+	@Override
+	public void openExplanationWindow()
+	{
+		openWindow(new ExplanationGameWindow());
 	}
 	
 	@Override
 	public void openGame()
 	{
-		window.getContentPane().removeAll();
-		
-		window.add(new MainWindow());
-		
-		window.pack();
-		window.repaint();
+		openWindow(new MainWindow());
 		
 		size = window.getSize();
+	}
+	
+	@Override
+	public void openWordWindow(Word w) 
+	{
+		openWindow(new WordWindow(w));
 		
-		window.setVisible(true);
+		setSize(window, size);
+		
+		selectedWords.put(w, info.get(w));
+		info.remove(w);
+	}
+	
+	@Override
+	public void change() 
+	{
+		window.pack();
+		window.repaint();
 	}
 
 	@Override
@@ -88,30 +96,6 @@ public class Game implements IGame
 		
 	}
 
-	@Override
-	public void change() 
-	{
-		window.pack();
-		window.repaint();
-	}
-	
-
-	@Override
-	public void openWordWindow(Word w) 
-	{
-		window.getContentPane().removeAll();
-		
-		window.add(new WordWindow(w));
-		
-		window.pack();
-		window.repaint();
-		
-		setSize(window, size);
-		
-		selectedWords.put(w, info.get(w));
-		info.remove(w);
-	}
-	
 	public Map<Word, Coordinate> getInfo()
 	{
 		return info;
@@ -125,5 +109,16 @@ public class Game implements IGame
 	public Dimension getWindowSize()
 	{
 		return size;
+	}
+	
+	private void openWindow(JPanel panel)
+	{
+		window.getContentPane().removeAll();
+		window.setVisible(true);
+		
+		window.add(panel);
+		
+		window.pack();
+		window.repaint();
 	}
 }

@@ -5,8 +5,9 @@ import game_components.Word;
 public interface IGame 
 {
 	public void start();
+	public void openExplanationWindow();
 	public void openGame();
-	public void end();
-	public void change();
 	public void openWordWindow(Word w);
+	public void change();
+	public void end();
 }
