@@ -14,14 +14,14 @@ import constants.GameConstants;
 import constants.ViewConstants;
 import game.Game;
 
-public class ExlanationGameWindow extends JPanel
+public class ExplanationGameWindow extends JPanel
 {
 	private final LayoutManager LAYOUT = new BoxLayout(this, BoxLayout.X_AXIS); 
 	
 	private JPanel pnlInformation = new JPanel();
 	private JPanel pnlPlayerWords;
 	
-	public ExlanationGameWindow()
+	public ExplanationGameWindow()
 	{
 		super();
 		configurate();
