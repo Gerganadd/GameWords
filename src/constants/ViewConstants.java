@@ -11,24 +11,30 @@ import javax.swing.border.Border;
 
 public class ViewConstants 
 {
+	public static final Color BACKGROUND = new Color(91, 95, 140);
 	public static final int FONT = Font.PLAIN;
-	public static final LayoutManager LAYOUT = new FlowLayout();
+	public static final LayoutManager LAYOUT = new FlowLayout(FlowLayout.CENTER, 0, 0);
 	
 	//StartWindow
-	public static final String PLAYER_NAME = "Ema"; // to-do: change it
+	public static final Dimension D_START_WINDOW = new Dimension(700, 400); 
+	public static final Dimension D_START_WINDOW_PNL_BOTTOM = new Dimension(D_START_WINDOW.width, (int) (D_START_WINDOW.height * 0.2));
+	public static final Dimension D_START_WINDOW_PNL_TEXT = new Dimension((int) (D_START_WINDOW.getWidth() / 2), D_START_WINDOW.height - D_START_WINDOW_PNL_BOTTOM.height);
+	
+	public static final String PLAYER_NAME = "Наташа"; 
 	public static String PLAYER_WORDS = 
 			String.format("Здравей! Аз съм %s. В тази игра ще видиш неправилно написани думи."
 					+ " Аз ще избирам коя да поправиш. Ти кликни върху грешената буква в нея."
-					+ " Ако откриеш коя е тя, печелиш точка.", PLAYER_NAME);
-	public static final String PLAYER_WORDS_1 = "Искаш ли да играем?";
+					+ " Ако откриеш коя е тя, печелиш точка."
+					+ " Искаш ли да играем?", PLAYER_NAME);
+	
+	public static String PLAYER_GOODBYE_WORDS = "Довиждане! Ако ти се играе, знаеш къде да ме намериш.";
 	
 	public static final String BTN_YES_TEXT = "ДА";
 	public static final String BTN_NO_TEXT = "НЕ";
+	public static final String BTN_EXIT_TEXT = "Изход";
 	
 	
 	//WordWindow
-	public static final Dimension D_WORD_WINDOW = new Dimension(300, 400); //change name
-	
 	public static final Color CORRECT_COLOR = Color.GREEN;
 	
 	public static final String WORD_WINDOW_QUESTION = "Коя е сгрешената буква? Кликни върху нея.";
@@ -43,7 +49,9 @@ public class ViewConstants
 	public static final float FONT_SIZE_LETTER = 38.0f;
 	
 	public static final double PROSENTS_OF_WINDOW_PNL_TEXT = 0.1;
-	public static final double PROSENTS_OF_WINDOW_PNL_LETTER = 0.2;
+	public static final double PROSENTS_OF_WINDOW_PNL_LETTER = 0.13;
+	
+	public static final String BTN_BACK_TEXT = "Назад";
 	
 	//ResultWindow
 	public static String END_TEXT = "Твоят резултат е: ";
