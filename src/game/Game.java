@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.swing.JFrame;
 
 import constants.GameConstants;
+import constants.ViewConstants;
 import game_components.*;
 import interfaces.IGame;
 import parser.Parser;
@@ -17,8 +18,6 @@ import windows.*;
 
 public class Game implements IGame
 {
-	private final LayoutManager LAYOUT = new FlowLayout();
-	
 	private static Game game = null;
 	
 	private Dimension size;
@@ -32,7 +31,8 @@ public class Game implements IGame
 	{
 		window = new JFrame();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setLayout(LAYOUT);
+		window.getContentPane().setBackground(ViewConstants.BACKGROUND);
+		window.setLayout(ViewConstants.LAYOUT);
 	}
 	
 	public static Game getInstance()
@@ -56,6 +56,21 @@ public class Game implements IGame
 	@Override
 	public void start()
 	{
+		window.add(new StartWindow());
+		
+		window.pack();
+		window.repaint();
+		
+		//size = window.getSize();
+		
+		window.setVisible(true);
+	}
+	
+	@Override
+	public void openGame()
+	{
+		window.getContentPane().removeAll();
+		
 		window.add(new MainWindow());
 		
 		window.pack();
