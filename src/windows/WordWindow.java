@@ -116,7 +116,7 @@ public class WordWindow extends JPanel //to-do add timer
 			}
 		});
 		
-		int size = (int) (ViewConstants.D_WORD_WINDOW.getHeight() * ViewConstants.PROSENTS_OF_WINDOW_PNL_LETTER);
+		int size = (int) (Game.getInstance().getWindowSize().getHeight() * ViewConstants.PROSENTS_OF_WINDOW_PNL_LETTER);
 		Dimension d = new Dimension(size, size);
 		Game.setSize(pnl, d);
 		
