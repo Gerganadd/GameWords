@@ -36,6 +36,12 @@ public class ViewConstants
 	public static final String BTN_NO_TEXT = "НЕ";
 	public static final String BTN_EXIT_TEXT = "Изход";
 	
+	//MainWindow
+	public static final String POINTS_TEXT = "Точки : ";
+	public static final int POINTS_X = 5;
+	public static final int POINTS_Y = 5;
+	public static final int POINTS_WIDTH = 50;
+	public static final int POINTS_HEIGHT = 30;
 	
 	//WordWindow
 	public static final Color CORRECT_COLOR = Color.GREEN;

@@ -52,6 +52,8 @@ public class MainWindow extends JPanel
 				}
 			});
 			
+			drawPoints();
+			
 		} 
 		catch (IOException e) 
 		{
@@ -113,6 +115,18 @@ public class MainWindow extends JPanel
 			
 			this.add(lbl);
 		});
+	}
+	
+	private void drawPoints()
+	{
+		String text = ViewConstants.POINTS_TEXT + Game.getInstance().getPoints();
+		JLabel lbl = new JLabel(text);
+		lbl.setBounds(ViewConstants.POINTS_X,
+				ViewConstants.POINTS_Y,
+				ViewConstants.POINTS_WIDTH,
+				ViewConstants.POINTS_HEIGHT);
+		
+		this.add(lbl);
 	}
 	
 }
