@@ -36,8 +36,6 @@ public class MainWindow extends JPanel
 			elementImage = ImageIO.read(new File(GameConstants.ELEMENT_PICTURE_PATH));
 			selectedElementImage = ImageIO.read(new File(GameConstants.SELECTED_ELEMENT_PICTURE_PATH));
 			
-			roll = ImageIO.read(new File(GameConstants.CONGRATULATION_PICTURE_PATH));
-			
 			Dimension d = new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight());
 			Game.setSize(this, d);
 			
@@ -62,11 +60,6 @@ public class MainWindow extends JPanel
 		
 	}
 	
-	public Dimension getSize()
-	{
-		return new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight());
-	}
-	
 	@Override
     protected void paintComponent(Graphics g)
 	{
@@ -87,6 +80,17 @@ public class MainWindow extends JPanel
         
     }
 	
+	public Dimension getSize()
+	{
+		return new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight());
+	}
+	
+	private void configurate() 
+	{
+		this.setVisible(true);
+		this.setLayout(null);
+	}
+	
 	private void drawElements(Map<Word, Coordinate> map, boolean isDefaultPicture)
 	{
 		map.forEach((k, v) -> 
@@ -94,6 +98,7 @@ public class MainWindow extends JPanel
 			BufferedImage image = isDefaultPicture ? elementImage : selectedElementImage;
 			JLabel lbl = new JLabel(new ImageIcon(image));
 			lbl.setBounds(v.getX(), v.getY(), image.getWidth(), image.getHeight());
+			
 			if (isDefaultPicture)
 			{
 				lbl.addMouseListener(new MouseAdapter() 
@@ -105,13 +110,9 @@ public class MainWindow extends JPanel
 					}
 				});
 			}
+			
 			this.add(lbl);
 		});
 	}
 	
-	private void configurate() 
-	{
-		this.setVisible(true);
-		this.setLayout(null);
-	}
 }
