@@ -24,7 +24,6 @@ public class MainWindow extends JPanel
 	private BufferedImage backgroundImage;
 	private BufferedImage elementImage;
 	private BufferedImage selectedElementImage;
-	private BufferedImage roll;
 	
 	public MainWindow()
 	{

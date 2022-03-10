@@ -20,6 +20,8 @@ public class Game implements IGame
 {
 	private static Game game = null;
 	
+	private int points = 0;
+	
 	private Dimension size;
 	
 	private Map<Word, Coordinate> info = Parser.parse(GameConstants.FILE_PATH); // change name
@@ -97,6 +99,16 @@ public class Game implements IGame
 	{
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void plusOnePoint()
+	{
+		++points;
+	}
+	
+	public int getPoints()
+	{
+		return points;
 	}
 
 	public Map<Word, Coordinate> getInfo()

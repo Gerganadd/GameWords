@@ -153,6 +153,8 @@ public class WordWindow extends JPanel
 	
 	private void correctAnswer()
 	{
+		Game.getInstance().plusOnePoint();
+		
 		this.pnlText.removeAll();
 		setText(pnlText, ViewConstants.CORRECT_ANSWEAR);
 		
