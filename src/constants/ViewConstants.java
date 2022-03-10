@@ -44,7 +44,7 @@ public class ViewConstants
 	public static final String CORRECT_ANSWEAR = "Правилно!";
 	
 	public static final Border DEFAULT_BORDER = BorderFactory.createLineBorder(Color.BLACK, 2);
-	public static final Border SELECTED_BORDER = BorderFactory.createLineBorder(Color.BLUE, 2);
+	public static final Border SELECTED_BORDER = BorderFactory.createLineBorder(Color.WHITE, 2);
 	public static final Border CORRECT_SELECTED_BORDER = BorderFactory.createLineBorder(CORRECT_COLOR, 2);
 	public static final Border WRONG_SELECTED_BORDER = BorderFactory.createLineBorder(Color.RED, 2);
 	

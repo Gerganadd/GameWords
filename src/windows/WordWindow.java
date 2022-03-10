@@ -1,21 +1,29 @@
 package windows;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.LayoutManager;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import constants.GameConstants;
 import constants.ViewConstants;
 import game.Game;
 import game_components.Word;
 
-public class WordWindow extends JPanel //to-do add timer
+public class WordWindow extends JPanel 
 {
 	private final LayoutManager WORD_WINDOW_LAYOUT = new BoxLayout(this, BoxLayout.Y_AXIS);
 	
@@ -38,36 +46,34 @@ public class WordWindow extends JPanel //to-do add timer
 
 		lblLetters = new JLabel[word.getWrongWord().length()];
 		
-		createContent();
-	}
-
-	private void configurate()
-	{
-		this.setLayout(WORD_WINDOW_LAYOUT);
-		
-		pnlText = new JPanel();
-		pnlText.setLayout(new FlowLayout());
-		
-		pnlLetters = new JPanel();
-		pnlLetters.setLayout(ViewConstants.LAYOUT);
-		
-		hasSelectedLetter = false;
-	}
-	
-	private void createContent()
-	{
 		setText(pnlText, ViewConstants.WORD_WINDOW_QUESTION);
 		
 		for(int i = 0; i < word.getWrongWord().length(); i++)
 		{
-			createPanel(i);
+			createPanelLetter(i);
 		}
 		
-		this.add(pnlText);
+		this.add(createPanelText());
 		this.add(pnlLetters);
 	}
 	
-	private void createPanel(int index)
+	private void configurate()
+	{
+		this.setBackground(ViewConstants.BACKGROUND);
+		this.setLayout(WORD_WINDOW_LAYOUT);
+		
+		pnlText = new JPanel();
+		pnlText.setBackground(this.getBackground());
+		pnlText.setLayout(new FlowLayout());
+		
+		pnlLetters = new JPanel();
+		pnlLetters.setLayout(new FlowLayout());
+		pnlLetters.setBackground(this.getBackground());
+		
+		hasSelectedLetter = false;
+	}
+	
+	private void createPanelLetter(int index)
 	{
 		JLabel lblLetter = createLabelLetter(index);
 		
@@ -102,15 +108,27 @@ public class WordWindow extends JPanel //to-do add timer
 				{
 					pnl.setBorder(ViewConstants.CORRECT_SELECTED_BORDER);
 					
-					correctAnswear();
+					correctAnswer();
 				}
 				else
 				{
 					pnl.setBorder(ViewConstants.WRONG_SELECTED_BORDER);
 					lblLetters[word.getIndexOfWrongLetter()].setForeground(ViewConstants.CORRECT_COLOR);
 					
-					wrongAnswear();
+					wrongAnswer();
 				}
+				
+				JPanel pnlButton = new JPanel();
+				pnlButton.setBackground(getBackground());
+				
+				JButton btnBack = new JButton(ViewConstants.BTN_BACK_TEXT);
+				btnBack.addActionListener(x ->
+				{
+					Game.getInstance().openGame();
+				});
+				
+				pnlButton.add(btnBack);
+				add(pnlButton);
 				
 				Game.getInstance().change();
 			}
@@ -128,27 +146,32 @@ public class WordWindow extends JPanel //to-do add timer
 	private JLabel createLabelLetter(int index)
 	{
 		JLabel lbl = new JLabel(word.getWrongWord().charAt(index) + "");
-		changeFont(lbl, ViewConstants.FONT_SIZE_LETTER);
+		lbl.setFont(lbl.getFont().deriveFont(ViewConstants.FONT, ViewConstants.FONT_SIZE_LETTER));
 		
 		return lbl;
 	}
 	
-	private void changeFont(Component c, float f)
-	{
-		c.setFont(c.getFont().deriveFont(ViewConstants.FONT, f));
-	}
-	
-	private void correctAnswear()
+	private void correctAnswer()
 	{
 		this.pnlText.removeAll();
 		setText(pnlText, ViewConstants.CORRECT_ANSWEAR);
 		
+		try 
+		{
+			BufferedImage rewardImage = ImageIO.read(new File(GameConstants.CONGRATULATION_PICTURE_PATH));
+			pnlText.add(new JLabel(new ImageIcon(rewardImage)));
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		
 		this.repaint();
 	}
 	
-	private void wrongAnswear()
+	private void wrongAnswer()
 	{
-		Dimension d = new Dimension((int) Game.getInstance().getWindowSize().getWidth() - 20,
+		Dimension d = new Dimension((int) Game.getInstance().getWindowSize().getWidth() / 2,
 				(int) (Game.getInstance().getWindowSize().getHeight() * ViewConstants.PROSENTS_OF_WINDOW_PNL_TEXT));
 		
 		this.pnlText.removeAll();
@@ -165,8 +188,31 @@ public class WordWindow extends JPanel //to-do add timer
 		for (String word : words)
 		{
 			JLabel lbl = new JLabel(word);
-			changeFont(lbl, ViewConstants.FONT_SIZE_TEXT);
+			lbl.setForeground(Color.WHITE);
+			lbl.setFont(lbl.getFont().deriveFont(ViewConstants.FONT, ViewConstants.FONT_SIZE_TEXT));
 			pnl.add(lbl);
 		}	
+	}
+	
+	private JPanel createPanelText()
+	{
+		JPanel pnl = new JPanel();
+		pnl.setBackground(this.getBackground());
+		pnl.setLayout(new FlowLayout(FlowLayout.LEFT));
+		
+		try 
+		{
+			BufferedImage playerImage = ImageIO.read(new File(GameConstants.PLAYER_PICTURE_PATH));
+			JLabel lblPlayerImage = new JLabel(new ImageIcon(playerImage));
+			pnl.add(lblPlayerImage);
+		
+			pnl.add(pnlText);
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		return pnl;
 	}
 }

@@ -81,8 +81,7 @@ public class MainWindow extends JPanel
         
         if (Game.getInstance().getInfo().size() == 0)
         {
-        	this.g.drawImage(roll, 230, 170, this);
-            this.g.drawString("Поздравления!", 280, 227); //to-do
+        	Game.getInstance().end();
         }
        
         this.g.dispose();
@@ -96,14 +95,17 @@ public class MainWindow extends JPanel
 			BufferedImage image = isDefaultPicture ? elementImage : selectedElementImage;
 			JLabel lbl = new JLabel(new ImageIcon(image));
 			lbl.setBounds(v.getX(), v.getY(), image.getWidth(), image.getHeight());
-			lbl.addMouseListener(new MouseAdapter() 
+			if (isDefaultPicture)
 			{
-				@Override
-				public void mouseClicked(MouseEvent arg0) 
+				lbl.addMouseListener(new MouseAdapter() 
 				{
-					Game.getInstance().openWordWindow(k);
-				}
-			});
+					@Override
+					public void mouseClicked(MouseEvent arg0) 
+					{
+						Game.getInstance().openWordWindow(k);
+					}
+				});
+			}
 			this.add(lbl);
 		});
 	}
