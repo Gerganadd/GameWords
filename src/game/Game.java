@@ -28,6 +28,8 @@ public class Game implements IGame
 	
 	public Game()
 	{
+		System.setProperty("file.encoding", "UTF-8");
+		
 		window = new JFrame();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setBackground(ViewConstants.BACKGROUND);
