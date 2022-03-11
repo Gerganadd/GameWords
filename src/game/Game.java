@@ -97,8 +97,9 @@ public class Game implements IGame
 	@Override
 	public void end() 
 	{
-		// TODO Auto-generated method stub
+		openWindow(new EndWindow());
 		
+		change();
 	}
 	
 	public void plusOnePoint()

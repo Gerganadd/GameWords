@@ -160,7 +160,7 @@ public class WordWindow extends JPanel
 		
 		try 
 		{
-			BufferedImage rewardImage = ImageIO.read(new File(GameConstants.CONGRATULATION_PICTURE_PATH));
+			BufferedImage rewardImage = ImageIO.read(new File(GameConstants.REWARD_PICTURE_PATH));
 			pnlText.add(new JLabel(new ImageIcon(rewardImage)));
 		} 
 		catch (IOException e) 
