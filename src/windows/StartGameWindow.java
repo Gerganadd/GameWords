@@ -27,6 +27,7 @@ public class StartGameWindow extends JPanel
 			lblImage.setBounds(0, 0, image.getWidth(), image.getHeight());
 			
 			JButton btnStart = new JButton(ButtonTextConstants.BTN_START_TEXT);
+			btnStart.setVisible(true);
 			btnStart.addActionListener(x -> 
 			{
 				Game.getInstance().openExplanationWindow();
