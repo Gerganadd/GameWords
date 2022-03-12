@@ -1,14 +1,6 @@
 package windows;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.LayoutManager;
-import java.awt.Shape;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,15 +8,11 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import constants.GameConstants;
-import constants.ViewConstants;
+import constants.*;
 import game.Game;
 
 public class StartGameWindow extends JPanel
 {
-	private static final int btnWidth = 100;
-	private static final int btnHeight = 30;
-	
 	private BufferedImage image;
 	
 	public StartGameWindow()
@@ -38,15 +26,15 @@ public class StartGameWindow extends JPanel
 			JLabel lblImage = new JLabel(new ImageIcon(image));
 			lblImage.setBounds(0, 0, image.getWidth(), image.getHeight());
 			
-			JButton btnStart = new JButton(ViewConstants.BTN_START_TEXT);
+			JButton btnStart = new JButton(ButtonTextConstants.BTN_START_TEXT);
 			btnStart.addActionListener(x -> 
 			{
 				Game.getInstance().openExplanationWindow();
 			});
-			btnStart.setBounds((image.getWidth() - btnWidth) / 2 ,
-					image.getHeight() - btnHeight - 5,
-					btnWidth,
-					btnHeight);
+			btnStart.setBounds((image.getWidth() - StartWindowConstants.btnWidth) / 2 ,
+					image.getHeight() - StartWindowConstants.btnHeight - 5,
+					StartWindowConstants.btnWidth,
+					StartWindowConstants.btnHeight);
 			
 			this.add(lblImage);
 			this.add(btnStart);

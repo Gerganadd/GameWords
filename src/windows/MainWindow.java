@@ -13,8 +13,7 @@ import java.util.Map;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import constants.GameConstants;
-import constants.ViewConstants;
+import constants.*;
 import game.Game;
 import game_components.*;
 
@@ -32,25 +31,15 @@ public class MainWindow extends JPanel
 		
 		try 
 		{
-			backgroundImage = ImageIO.read(new File(GameConstants.BACKGROUND_PICTURE_PATH));
-			elementImage = ImageIO.read(new File(GameConstants.ELEMENT_PICTURE_PATH));
-			selectedElementImage = ImageIO.read(new File(GameConstants.SELECTED_ELEMENT_PICTURE_PATH));
+			backgroundImage = ImageIO.read(new File(MainWindowConstants.BACKGROUND_PICTURE_PATH));
+			elementImage = ImageIO.read(new File(MainWindowConstants.ELEMENT_PICTURE_PATH));
+			selectedElementImage = ImageIO.read(new File(MainWindowConstants.SELECTED_ELEMENT_PICTURE_PATH));
 			
 			Dimension d = new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight());
 			Game.setSize(this, d);
 			
 			drawElements(Game.getInstance().getInfo(), true);
 			drawElements(Game.getInstance().getSelectedWords(), false);
-			
-			//to-do: remove mouseListener
-			this.addMouseListener(new MouseAdapter()
-			{
-				@Override
-				public void mouseClicked(MouseEvent arg0) 
-				{
-					System.out.println(arg0.getLocationOnScreen());
-				}
-			});
 			
 			drawPoints();
 			
@@ -119,12 +108,13 @@ public class MainWindow extends JPanel
 	
 	private void drawPoints()
 	{
-		String text = ViewConstants.POINTS_TEXT + Game.getInstance().getPoints();
+		String text = MainWindowConstants.POINTS_TEXT + Game.getInstance().getPoints();
+		
 		JLabel lbl = new JLabel(text);
-		lbl.setBounds(ViewConstants.POINTS_X,
-				ViewConstants.POINTS_Y,
-				ViewConstants.POINTS_WIDTH,
-				ViewConstants.POINTS_HEIGHT);
+		lbl.setBounds(MainWindowConstants.POINTS_X,
+				MainWindowConstants.POINTS_Y,
+				MainWindowConstants.POINTS_WIDTH,
+				MainWindowConstants.POINTS_HEIGHT);
 		
 		this.add(lbl);
 	}

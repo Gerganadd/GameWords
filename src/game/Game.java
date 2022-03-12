@@ -1,16 +1,19 @@
 package game;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import constants.GameConstants;
-import constants.ViewConstants;
+import constants.GameViewConstants;
 import game_components.*;
 import interfaces.IGame;
 import parser.Parser;
@@ -34,8 +37,8 @@ public class Game implements IGame
 		
 		window = new JFrame();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.getContentPane().setBackground(ViewConstants.BACKGROUND);
-		window.setLayout(ViewConstants.LAYOUT);
+		window.getContentPane().setBackground(GameViewConstants.BACKGROUND);
+		window.setLayout(GameViewConstants.LAYOUT);
 	}
 	
 	public static Game getInstance()
@@ -54,6 +57,12 @@ public class Game implements IGame
 		c.setPreferredSize(d);
 		c.setMinimumSize(d);
 		c.setMaximumSize(d);
+	}
+	
+	public static void setFont(JLabel lbl)
+	{
+		lbl.setForeground(Color.WHITE);
+		lbl.setFont(lbl.getFont().deriveFont(GameViewConstants.FONT, GameViewConstants.FONT_SIZE_TEXT));
 	}
 	
 	@Override
@@ -98,6 +107,10 @@ public class Game implements IGame
 	public void end() 
 	{
 		openWindow(new EndWindow());
+		
+		size = window.getSize();
+		
+		setSize(window, size);
 		
 		change();
 	}

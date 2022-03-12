@@ -1,7 +1,5 @@
 package windows;
 
-import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.LayoutManager;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -10,8 +8,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import constants.GameConstants;
-import constants.ViewConstants;
+import constants.*;
 import game.Game;
 
 public class ExplanationGameWindow extends JPanel
@@ -38,30 +35,30 @@ public class ExplanationGameWindow extends JPanel
 			e.printStackTrace();
 		}
 		
-		JButton btnYes = new JButton(ViewConstants.BTN_YES_TEXT);
+		JButton btnYes = new JButton(ButtonTextConstants.BTN_YES_TEXT);
 		btnYes.addActionListener(x ->
 		{
 			Game.getInstance().openGame();
 		});
 		
-		JButton btnExit = new JButton(ViewConstants.BTN_EXIT_TEXT);
+		JButton btnExit = new JButton(ButtonTextConstants.BTN_EXIT_TEXT);
 		btnExit.addActionListener(y ->
 		{
 			System.exit(0);
 		});
 		
-		JButton btnNo = new JButton(ViewConstants.BTN_NO_TEXT);
+		JButton btnNo = new JButton(ButtonTextConstants.BTN_NO_TEXT);
 		btnNo.addActionListener(x ->
 		{
 			pnlInformation.removeAll();
 			
-			createPnlInformation(ViewConstants.PLAYER_GOODBYE_WORDS, btnExit);
+			createPnlInformation(ExplanationGameWindowConstants.PLAYER_GOODBYE_WORDS, btnExit);
 			
 			Game.getInstance().change();
 			
 		});
 
-		createPnlInformation(ViewConstants.PLAYER_WORDS, btnYes, btnNo);
+		createPnlInformation(ExplanationGameWindowConstants.PLAYER_WORDS, btnYes, btnNo);
 		
 		this.repaint();
 	}
@@ -72,14 +69,10 @@ public class ExplanationGameWindow extends JPanel
 		pnlInformation.setBackground(this.getBackground());
 		
 		pnlPlayerWords = createPnlWords(text);
-		Game.setSize(pnlPlayerWords, ViewConstants.D_START_WINDOW_PNL_TEXT);
-
+		Game.setSize(pnlPlayerWords, ExplanationGameWindowConstants.D_START_WINDOW_PNL_TEXT);
 		pnlInformation.add(pnlPlayerWords);
 		
 		JPanel pnlButtons = createPnlButtons(buttons);
-		pnlButtons.setLayout(new FlowLayout(FlowLayout.CENTER));
-		pnlButtons.setBackground(this.getBackground());
-		
 		pnlInformation.add(pnlButtons);
 		
 		this.add(pnlInformation);
@@ -88,7 +81,7 @@ public class ExplanationGameWindow extends JPanel
 	private JPanel createPnlButtons(JButton...buttons)
 	{
 		JPanel pnl = new JPanel(); 
-		pnl.setLayout(new FlowLayout(FlowLayout.CENTER));
+		pnl.setLayout(ExplanationGameWindowConstants.PNL_BUTTON_LAYOUT);
 		pnl.setBackground(this.getBackground());
 		
 		for(int i = 0; i < buttons.length; i++)
@@ -103,7 +96,7 @@ public class ExplanationGameWindow extends JPanel
 	{
 		JPanel pnl = new JPanel();
 		
-		pnl.setLayout(new FlowLayout(FlowLayout.LEFT));
+		pnl.setLayout(ExplanationGameWindowConstants.PNL_WORDS_LAYOUT);
 		pnl.setBackground(this.getBackground());
 		pnl.setBorder(BorderFactory.createLineBorder(this.getBackground()));
 		
@@ -112,8 +105,7 @@ public class ExplanationGameWindow extends JPanel
 		{
 			JLabel lbl = new JLabel(word);
 			
-			lbl.setForeground(Color.WHITE);
-			lbl.setFont(lbl.getFont().deriveFont(ViewConstants.FONT, ViewConstants.FONT_SIZE_TEXT));
+			Game.setFont(lbl);
 			
 			pnl.add(lbl);
 		}
@@ -124,7 +116,7 @@ public class ExplanationGameWindow extends JPanel
 	private void configurate() 
 	{ 
 		this.setVisible(true);
-		this.setBackground(ViewConstants.BACKGROUND);
+		this.setBackground(GameViewConstants.BACKGROUND);
 		this.setLayout(LAYOUT);
 	}
 }
