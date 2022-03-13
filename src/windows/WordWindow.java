@@ -1,5 +1,6 @@
 package windows;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.LayoutManager;
@@ -128,8 +129,6 @@ public class WordWindow extends JPanel
 				add(pnlButton);
 				
 				Game.getInstance().change();
-				
-				System.out.println(size());
 			}
 		});
 		
@@ -159,7 +158,7 @@ public class WordWindow extends JPanel
 		
 		try 
 		{
-			BufferedImage rewardImage = ImageIO.read(new File(GameConstants.REWARD_PICTURE_PATH));
+			BufferedImage rewardImage = ImageIO.read(new File(WordWindowConstants.REWARD_PICTURE_PATH));
 			pnlText.add(new JLabel(new ImageIcon(rewardImage)));
 		} 
 		catch (IOException e) 
@@ -172,12 +171,13 @@ public class WordWindow extends JPanel
 	
 	private void wrongAnswer()
 	{
+		this.pnlText.removeAll();
+		
 		Dimension d = new Dimension((int) Game.getInstance().getWindowSize().getWidth() / 2,
 				(int) (Game.getInstance().getWindowSize().getHeight() * WordWindowConstants.PROSENTS_OF_WINDOW_PNL_TEXT));
-		
-		this.pnlText.removeAll();
-		pnlText.setLayout(new FlowLayout());
+	
 		Game.setSize(pnlText, d);
+		
 		setText(pnlText, word.getExplanation());
 		
 		this.repaint();

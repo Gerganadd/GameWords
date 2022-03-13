@@ -36,12 +36,14 @@ public class MainWindow extends JPanel
 			selectedElementImage = ImageIO.read(new File(MainWindowConstants.SELECTED_ELEMENT_PICTURE_PATH));
 			
 			Dimension d = new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight());
+			//System.out.println(d);
 			Game.setSize(this, d);
 			
 			drawElements(Game.getInstance().getInfo(), true);
 			drawElements(Game.getInstance().getSelectedWords(), false);
 			
 			drawPoints();
+			drawText();
 			
 		} 
 		catch (IOException e) 
@@ -111,12 +113,26 @@ public class MainWindow extends JPanel
 		String text = MainWindowConstants.POINTS_TEXT + Game.getInstance().getPoints();
 		
 		JLabel lbl = new JLabel(text);
+		Game.setFont(lbl);
 		lbl.setBounds(MainWindowConstants.POINTS_X,
 				MainWindowConstants.POINTS_Y,
 				MainWindowConstants.POINTS_WIDTH,
 				MainWindowConstants.POINTS_HEIGHT);
 		
 		this.add(lbl);
+	}
+	
+	private void drawText()//to-do change name
+	{
+		JLabel lbl = new JLabel(MainWindowConstants.TEXT);
+		Game.setFont(lbl);
+		lbl.setBounds(MainWindowConstants.TEXT_X,
+				MainWindowConstants.TEXT_Y,
+				MainWindowConstants.TEXT_WIDTH,
+				MainWindowConstants.TEXT_HEIGHT);
+		
+		this.add(lbl);
+				
 	}
 	
 }

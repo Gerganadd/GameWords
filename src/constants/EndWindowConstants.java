@@ -3,9 +3,8 @@ package constants;
 public class EndWindowConstants 
 {
 	//paths
-	public static final String BACKGROUND_PICTURE_1_PATH = "src/resources/endWindow_1.png";
-	public static final String BACKGROUND_PICTURE_2_PATH = "src/resources/endWindow_2.png";
-	public static final String BACKGROUND_PICTURE_3_PATH = "src/resources/endWindow_3.png";
+	public static final String BACKGROUND_PICTURE_1_PATH = "src/resources/endWindow.jpg";
+	public static final String BACKGROUND_PICTURE_2_PATH = "src/resources/endWindow1.png";
 	
 	//view
 	public static String END_TEXT = "Твоят резултат е: ";

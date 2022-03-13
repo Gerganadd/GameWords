@@ -22,7 +22,7 @@ public class StartGameWindow extends JPanel
 		
 		try 
 		{
-			image = ImageIO.read(new File(GameConstants.GAME_TITLE_PICTURE_PATH));
+			image = ImageIO.read(new File(StartWindowConstants.GAME_TITLE_PICTURE_PATH));
 			JLabel lblImage = new JLabel(new ImageIcon(image));
 			lblImage.setBounds(0, 0, image.getWidth(), image.getHeight());
 			
@@ -39,8 +39,6 @@ public class StartGameWindow extends JPanel
 			
 			this.add(lblImage);
 			this.add(btnStart);
-
-			Game.getInstance().change();
 			
 		} 
 		catch (IOException e)
@@ -49,7 +47,8 @@ public class StartGameWindow extends JPanel
 		}
 		
 		Game.setSize(this, new Dimension(image.getWidth(), image.getHeight()));
-		this.repaint();
+
+		Game.getInstance().change();
 	}
 	
 	private void configurate() 

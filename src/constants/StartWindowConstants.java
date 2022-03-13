@@ -4,6 +4,10 @@ import java.awt.Dimension;
 
 public class StartWindowConstants
 {
+	//paths
+	public static final String GAME_TITLE_PICTURE_PATH = "src/resources/titleWindow.png";
+		
+	//view
 	public static final Dimension D_START_WINDOW = new Dimension(700, 400); 
 	
 	public static final int btnWidth = 100;

@@ -6,10 +6,6 @@ import java.awt.LayoutManager;
 
 public class ExplanationGameWindowConstants 
 {
-	//paths
-	public static final String GAME_TITLE_PICTURE_PATH = "src/resources/titleWindow.png";
-	
-	//view
 	public static final LayoutManager PNL_BUTTON_LAYOUT = new FlowLayout(FlowLayout.CENTER);
 	public static final LayoutManager PNL_WORDS_LAYOUT = new FlowLayout(FlowLayout.LEFT);
 	
@@ -19,8 +15,9 @@ public class ExplanationGameWindowConstants
 	
 	public static final String PLAYER_NAME = "Наташа"; 
 	public static String PLAYER_WORDS = 
-			String.format("Здравей! Аз съм %s. В тази игра ще видиш неправилно написани думи."
-					+ " Аз ще избирам коя да поправиш. Ти кликни върху грешената буква в нея."
+			String.format("Здравей! Аз съм %s. В тази игра ще видиш "
+					+ " сандъци, в които има неправилно написани думи."
+					+ " Кликни върху един от сандъците. После открий сгрешената буква и кликни върху нея."
 					+ " Ако откриеш коя е тя, печелиш точка."
 					+ " Искаш ли да играем?", PLAYER_NAME);
 	
