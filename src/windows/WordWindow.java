@@ -158,7 +158,7 @@ public class WordWindow extends JPanel
 		
 		try 
 		{
-			BufferedImage rewardImage = ImageIO.read(new File(WordWindowConstants.REWARD_PICTURE_PATH));
+			BufferedImage rewardImage = ImageIO.read(new File(GamePaths.WORD_WINDOW_REWARD_PICTURE_PATH));
 			pnlText.add(new JLabel(new ImageIcon(rewardImage)));
 		} 
 		catch (IOException e) 
@@ -203,7 +203,7 @@ public class WordWindow extends JPanel
 		
 		try 
 		{
-			BufferedImage playerImage = ImageIO.read(new File(GameConstants.PLAYER_PICTURE_PATH));
+			BufferedImage playerImage = ImageIO.read(new File(GamePaths.PLAYER_PICTURE_PATH));
 			JLabel lblPlayerImage = new JLabel(new ImageIcon(playerImage));
 			
 			pnl.add(lblPlayerImage);

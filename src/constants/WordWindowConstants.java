@@ -7,10 +7,6 @@ import javax.swing.border.Border;
 
 public class WordWindowConstants 
 {
-	//path
-	public static final String REWARD_PICTURE_PATH = "src/resources/reward_200_200.png";
-	
-	//view
 	public static final Color CORRECT_COLOR = Color.GREEN;
 	
 	public static final String WORD_WINDOW_QUESTION = "Коя е сгрешената буква? Кликни върху нея.";

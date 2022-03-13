@@ -25,7 +25,7 @@ public class ExplanationGameWindow extends JPanel
 		
 		try 
 		{
-			BufferedImage playerImage = ImageIO.read(new File(GameConstants.PLAYER_PICTURE_PATH));
+			BufferedImage playerImage = ImageIO.read(new File(GamePaths.PLAYER_PICTURE_PATH));
 			JLabel lblPlayer = new JLabel(new ImageIcon(playerImage));
 			
 			this.add(lblPlayer);

@@ -1,10 +1,7 @@
 package game;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,8 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import constants.GameConstants;
-import constants.GameViewConstants;
+import constants.*;
 import game_components.*;
 import interfaces.IGame;
 import parser.Parser;
@@ -21,13 +17,14 @@ import windows.*;
 
 public class Game implements IGame
 {
+	
 	private static Game game = null;
 	
 	private int points = 0;
 	
 	private Dimension size;
 	
-	private Map<Word, Coordinate> info = Parser.parse(GameConstants.FILE_PATH); // change name
+	private Map<Word, Coordinate> info = Parser.parse(GamePaths.FILE_PATH); 
 	private Map<Word, Coordinate> selectedWords = new HashMap<>();
 	private JFrame window;
 	
@@ -61,7 +58,7 @@ public class Game implements IGame
 	
 	public static void setFont(JLabel lbl)
 	{
-		lbl.setForeground(Color.WHITE);
+		lbl.setForeground(GameViewConstants.FOREGROUND);
 		lbl.setFont(lbl.getFont().deriveFont(GameViewConstants.FONT, GameViewConstants.FONT_SIZE_TEXT));
 	}
 	

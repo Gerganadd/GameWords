@@ -15,8 +15,8 @@ public class EndWindow extends JPanel
 {
 	private String playerWords;
 	
-	private JLabel lblPlayer = createLblPictureFrom(EndWindowConstants.BACKGROUND_PICTURE_1_PATH);
-	private JLabel lblPlayerWords = createLblPictureFrom(EndWindowConstants.BACKGROUND_PICTURE_2_PATH);;
+	private JLabel lblPlayer = createLblPictureFrom(GamePaths.END_WINDOW_BACKGROUND_PICTURE_1_PATH);
+	private JLabel lblPlayerWords = createLblPictureFrom(GamePaths.END_WINDOW_BACKGROUND_PICTURE_2_PATH);;
 	
 	public EndWindow()
 	{

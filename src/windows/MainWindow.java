@@ -31,9 +31,9 @@ public class MainWindow extends JPanel
 		
 		try 
 		{
-			backgroundImage = ImageIO.read(new File(MainWindowConstants.BACKGROUND_PICTURE_PATH));
-			elementImage = ImageIO.read(new File(MainWindowConstants.ELEMENT_PICTURE_PATH));
-			selectedElementImage = ImageIO.read(new File(MainWindowConstants.SELECTED_ELEMENT_PICTURE_PATH));
+			backgroundImage = ImageIO.read(new File(GamePaths.MAIN_WINDOW_BACKGROUND_PICTURE_PATH));
+			elementImage = ImageIO.read(new File(GamePaths.MAIN_WINDOW_ELEMENT_PICTURE_PATH));
+			selectedElementImage = ImageIO.read(new File(GamePaths.MAIN_WINDOW_SELECTED_ELEMENT_PICTURE_PATH));
 			
 			Dimension d = new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight());
 			//System.out.println(d);

@@ -22,7 +22,7 @@ public class StartGameWindow extends JPanel
 		
 		try 
 		{
-			image = ImageIO.read(new File(StartWindowConstants.GAME_TITLE_PICTURE_PATH));
+			image = ImageIO.read(new File(GamePaths.START_WINDOW_BACKGROUND_PICTURE_PATH));
 			JLabel lblImage = new JLabel(new ImageIcon(image));
 			lblImage.setBounds(0, 0, image.getWidth(), image.getHeight());
 			
