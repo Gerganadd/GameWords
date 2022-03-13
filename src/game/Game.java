@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -60,6 +61,15 @@ public class Game implements IGame
 	{
 		lbl.setForeground(GameViewConstants.FOREGROUND);
 		lbl.setFont(lbl.getFont().deriveFont(GameViewConstants.FONT, GameViewConstants.FONT_SIZE_TEXT));
+	}
+	
+	public static JButton createButton(Buttons value)
+	{
+		JButton btn = new JButton(value.getText());
+		btn.setBackground(GameViewConstants.BUTTONS_BACKGROUND);
+		btn.setVisible(true);
+		
+		return btn;
 	}
 	
 	@Override

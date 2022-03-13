@@ -35,19 +35,19 @@ public class ExplanationGameWindow extends JPanel
 			e.printStackTrace();
 		}
 		
-		JButton btnYes = new JButton(ButtonTextConstants.BTN_YES_TEXT);
+		JButton btnYes = Game.createButton(Buttons.BTN_YES_TEXT);
 		btnYes.addActionListener(x ->
 		{
 			Game.getInstance().openGame();
 		});
 		
-		JButton btnExit = new JButton(ButtonTextConstants.BTN_EXIT_TEXT);
+		JButton btnExit = Game.createButton(Buttons.BTN_EXIT_TEXT);
 		btnExit.addActionListener(y ->
 		{
 			System.exit(0);
 		});
 		
-		JButton btnNo = new JButton(ButtonTextConstants.BTN_NO_TEXT);
+		JButton btnNo = Game.createButton(Buttons.BTN_NO_TEXT);
 		btnNo.addActionListener(x ->
 		{
 			pnlInformation.removeAll();

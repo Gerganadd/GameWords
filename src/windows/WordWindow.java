@@ -1,6 +1,5 @@
 package windows;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.LayoutManager;
@@ -119,7 +118,7 @@ public class WordWindow extends JPanel
 				JPanel pnlButton = new JPanel();
 				pnlButton.setBackground(getBackground());
 				
-				JButton btnBack = new JButton(ButtonTextConstants.BTN_BACK_TEXT);
+				JButton btnBack = Game.createButton(Buttons.BTN_BACK_TEXT);
 				btnBack.addActionListener(x ->
 				{
 					Game.getInstance().openGame();

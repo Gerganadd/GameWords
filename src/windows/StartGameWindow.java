@@ -26,8 +26,7 @@ public class StartGameWindow extends JPanel
 			JLabel lblImage = new JLabel(new ImageIcon(image));
 			lblImage.setBounds(0, 0, image.getWidth(), image.getHeight());
 			
-			JButton btnStart = new JButton(ButtonTextConstants.BTN_START_TEXT);
-			btnStart.setVisible(true);
+			JButton btnStart = Game.createButton(Buttons.BTN_START_TEXT);
 			btnStart.addActionListener(x -> 
 			{
 				Game.getInstance().openExplanationWindow();
@@ -36,19 +35,20 @@ public class StartGameWindow extends JPanel
 					image.getHeight() - StartWindowConstants.btnHeight - 5,
 					StartWindowConstants.btnWidth,
 					StartWindowConstants.btnHeight);
+		
+			Game.setSize(this, new Dimension(image.getWidth(), image.getHeight()));
 			
 			this.add(lblImage);
 			this.add(btnStart);
+			this.repaint();
 			
+			Game.getInstance().change();
 		} 
 		catch (IOException e)
 		{
 			e.printStackTrace();
 		}
-		
-		Game.setSize(this, new Dimension(image.getWidth(), image.getHeight()));
 
-		Game.getInstance().change();
 	}
 	
 	private void configurate() 

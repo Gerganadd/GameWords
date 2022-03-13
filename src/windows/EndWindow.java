@@ -33,12 +33,11 @@ public class EndWindow extends JPanel
 		pnlPlayerWords.setBounds(pnlPlayer.getWidth(), 0, lblPlayerWords.getWidth(), lblPlayerWords.getHeight());
 		addResultLabelInto(lblPlayerWords);
 		
-		JButton btnExit = new JButton(ButtonTextConstants.BTN_EXIT_TEXT);
+		JButton btnExit = Game.createButton(Buttons.BTN_EXIT_TEXT);
 		btnExit.addActionListener(x ->
 		{
 			System.exit(0);
 		});
-		btnExit.setVisible(true);
 		btnExit.setBounds(
 				(lblPlayerWords.getWidth() - EndWindowConstants.BTN_WIDTH) / 2 - 30,
 				lblPlayerWords.getHeight() - 2 * EndWindowConstants.BTN_HEIGHT,
